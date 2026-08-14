@@ -7,7 +7,7 @@ import Profile from '@/components/Profile';
 
 const MyProfile = () => {
 
-  const {data: session} = useSession();
+  const {data: session, status} = useSession();
   const [posts, setPosts] = useState([]);  
 
    useEffect(() => {
@@ -18,7 +18,7 @@ const MyProfile = () => {
       setPosts(data);
     };
  
-    if (session?.user.id) fetchPosts();
+    if (status === 'authenticated' && session?.user?.id) fetchPosts();
   }, [])
 
   const handleEdit = () => {
