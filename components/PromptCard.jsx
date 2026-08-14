@@ -14,12 +14,14 @@ export const PromptCard = ({post, handleTagClick, handleDelete, handleEdit}) => 
     setTimeout(() => setCopied(""),3000);
   }
   
+   if (!post.creator) return null;
+   
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
         <div className='flex-1 flex justify-start items-center gap-3 cursor-pointer'>
           <Image
-            src={post.creator?.image|| '/assets/images/default-avatar.png'}
+            src={post.creator?.image || '/assets/images/default-avatar.png'}
             alt='user_image'
             width={40}
             height={40}
@@ -28,10 +30,10 @@ export const PromptCard = ({post, handleTagClick, handleDelete, handleEdit}) => 
 
           <div className='flex flex-col'>
             <h3  className='font-satoshi font-semibold text-gray-900'>
-              {post.creator.username}
+              {post.creator?.username}
             </h3>
             <p className='font-inter text-sm text-gray-500'>
-              {post.creator.email}
+              {post.creator?.email}
             </p>
           </div>
 
