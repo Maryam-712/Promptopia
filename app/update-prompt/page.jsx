@@ -70,4 +70,13 @@ const EditPrompt = () => {
   )
 }
 
-export default EditPrompt
+const EditPromptForm = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EditPrompt />
+    </Suspense>
+  );
+};
+
+
+export default EditPromptForm;
